@@ -1,0 +1,33 @@
+server:
+  port: 8081    
+  
+  
+spring:
+  application:
+    name: movie-admin-service
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://127.0.0.1:3306/tuts_database?useSSL=false
+    username: MySql_Instance
+    password: MySql_Instance
+    driverClassName: com.mysql.jdbc.Driver 
+    
+ 
+eureka:         
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+ 
+ 

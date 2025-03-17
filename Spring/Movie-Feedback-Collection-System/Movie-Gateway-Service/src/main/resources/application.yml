@@ -1,0 +1,30 @@
+#zuul.routes.movie-admin-service.path=/movie-admin-service/**
+#zuul.routes.movie-admin-service.url=http://localhost:8081
+#
+#zuul.routes.movie-visitor-service.path=/movie-visitor-service/**
+#zuul.routes.movie-visitor-service.url=http://localhost:8082
+
+server:
+  port: 8085  
+
+spring:
+  application:
+    name: movie-gateway-service
+    
+zuul:
+ routes:
+    admin :
+      path : /movie/**
+      service-id : movie-admin-service 
+      strip-prefix : false
+    visitor :
+      path : /visitor/**
+      service-id : movie-visitor-service 
+      strip-prefix : false 
+      
+    
+    
+eureka:
+  client:
+    registerWithEureka: true    
+
